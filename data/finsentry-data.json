@@ -1,0 +1,501 @@
+{
+  "financialSettings": {
+    "currentCash": 1200000,
+    "minReserve": 5000000,
+    "upcomingObligations": 600000,
+    "updatedAt": "2026-09-13T13:12:51.569Z"
+  },
+  "invoices": [
+    {
+      "id": "INV-269d076d",
+      "displayNumber": "INV-042",
+      "vendorName": "ABC",
+      "invoiceNumber": "INV-042",
+      "amount": 500000,
+      "poNumber": "PO-8865",
+      "poAmount": 5200000,
+      "invoiceDate": "2026-09-15",
+      "bankAccountNumber": "8956473258",
+      "status": "APPROVED",
+      "createdAt": "2026-09-13T13:12:05.881Z",
+      "analysis": {
+        "analyzedAt": "2026-09-13T13:12:05.880Z",
+        "riskScore": 0,
+        "riskLevel": "LOW",
+        "recommendation": "APPROVE",
+        "findings": [
+          {
+            "key": "amountAnomaly",
+            "severity": "info",
+            "title": "Vendor amount history unavailable",
+            "detail": "Vendor amount history unavailable — insufficient historical data."
+          },
+          {
+            "key": "poMismatch",
+            "severity": "info",
+            "title": "PO comparison unavailable",
+            "detail": "PO comparison unavailable — no stored purchase order amount to compare against."
+          },
+          {
+            "key": "duplicate",
+            "severity": "info",
+            "title": "Duplicate check limited",
+            "detail": "Duplicate check limited — no historical invoices available."
+          },
+          {
+            "key": "vendorBehaviorAnomaly",
+            "severity": "info",
+            "title": "Vendor history unavailable",
+            "detail": "Vendor history unavailable — insufficient historical data."
+          },
+          {
+            "key": "bankAccountChange",
+            "severity": "info",
+            "title": "Bank account history unavailable",
+            "detail": "Bank account history unavailable — no prior bank account on file for this vendor."
+          },
+          {
+            "key": "liquidityUnavailable",
+            "severity": "info",
+            "title": "Cash-flow impact unavailable",
+            "detail": "Cash-flow impact unavailable — financial settings are not configured."
+          }
+        ],
+        "evidence": {},
+        "liquidity": null,
+        "explanation": {
+          "whyThisDecision": "FinSentry recommends APPROVE because no risk signals were detected in the available data. Some checks (vendor amount history unavailable, po comparison unavailable, duplicate check limited, vendor history unavailable, bank account history unavailable, cash-flow impact unavailable) could not be completed due to insufficient historical data, but this is not treated as evidence of risk.",
+          "businessImpact": "Paying this invoice is not expected to create liquidity pressure or duplicate/mismatch risk based on the available data.",
+          "source": "deterministic"
+        }
+      }
+    },
+    {
+      "id": "INV-d5e54e9d",
+      "displayNumber": "inv-0987",
+      "vendorName": "xyz",
+      "invoiceNumber": "inv-0987",
+      "amount": 520441656,
+      "poNumber": "PO-856",
+      "poAmount": 20000,
+      "invoiceDate": "2026-09-15",
+      "bankAccountNumber": "789545125521",
+      "status": "HOLD",
+      "createdAt": "2026-09-13T13:14:07.857Z",
+      "analysis": {
+        "analyzedAt": "2026-09-13T13:14:07.857Z",
+        "riskScore": 14,
+        "riskLevel": "LOW",
+        "recommendation": "HOLD",
+        "findings": [
+          {
+            "key": "amountAnomaly",
+            "severity": "info",
+            "title": "Vendor amount history unavailable",
+            "detail": "Vendor amount history unavailable — insufficient historical data."
+          },
+          {
+            "key": "poMismatch",
+            "severity": "info",
+            "title": "PO comparison unavailable",
+            "detail": "PO comparison unavailable — no stored purchase order amount to compare against."
+          },
+          {
+            "key": "duplicate",
+            "severity": "ok",
+            "title": "No duplicate invoice found",
+            "detail": "No matching invoice number, vendor, amount and date combination was found in stored invoices."
+          },
+          {
+            "key": "vendorBehaviorAnomaly",
+            "severity": "info",
+            "title": "Vendor history unavailable",
+            "detail": "Vendor history unavailable — insufficient historical data."
+          },
+          {
+            "key": "bankAccountChange",
+            "severity": "info",
+            "title": "Bank account history unavailable",
+            "detail": "Bank account history unavailable — no prior bank account on file for this vendor."
+          },
+          {
+            "key": "liquidityBelowReserve",
+            "severity": "critical",
+            "title": "Liquidity pressure",
+            "detail": "Payment would reduce available cash to ₹-51,92,41,656, below the configured reserve of ₹50,00,000."
+          }
+        ],
+        "evidence": {
+          "liquidity": {
+            "currentCash": 1200000,
+            "invoiceAmount": 520441656,
+            "cashAfterPayment": -519241656,
+            "minReserve": 5000000,
+            "status": "below_reserve"
+          }
+        },
+        "liquidity": {
+          "currentCash": 1200000,
+          "invoiceAmount": 520441656,
+          "cashAfterPayment": -519241656,
+          "minReserve": 5000000,
+          "status": "below_reserve"
+        },
+        "explanation": {
+          "whyThisDecision": "FinSentry recommends HOLD because the invoice has 1 significant risk signal: liquidity pressure. Vendor/transaction history is limited for some checks, so missing history is not treated as evidence of fraud.",
+          "businessImpact": "Payment would reduce available cash to ₹-51,92,41,656, below the configured operating reserve of ₹50,00,000, which may create short-term liquidity pressure.",
+          "source": "deterministic"
+        }
+      }
+    },
+    {
+      "id": "INV-86b2a953",
+      "displayNumber": "DEMO-1789305266246",
+      "vendorName": "Bluepeak Office Supplies",
+      "invoiceNumber": "DEMO-1789305266246",
+      "amount": 42500,
+      "poNumber": "",
+      "invoiceDate": "2026-09-13",
+      "bankAccountNumber": "1234567890123456",
+      "status": "ESCALATE",
+      "createdAt": "2026-09-13T13:14:28.637Z",
+      "analysis": {
+        "analyzedAt": "2026-09-13T13:14:28.635Z",
+        "riskScore": 14,
+        "riskLevel": "LOW",
+        "recommendation": "HOLD",
+        "findings": [
+          {
+            "key": "amountAnomaly",
+            "severity": "info",
+            "title": "Vendor amount history unavailable",
+            "detail": "Vendor amount history unavailable — insufficient historical data."
+          },
+          {
+            "key": "poMismatch",
+            "severity": "info",
+            "title": "No purchase order provided",
+            "detail": "No purchase order number was entered for this invoice."
+          },
+          {
+            "key": "duplicate",
+            "severity": "ok",
+            "title": "No duplicate invoice found",
+            "detail": "No matching invoice number, vendor, amount and date combination was found in stored invoices."
+          },
+          {
+            "key": "vendorBehaviorAnomaly",
+            "severity": "info",
+            "title": "Vendor history unavailable",
+            "detail": "Vendor history unavailable — insufficient historical data."
+          },
+          {
+            "key": "bankAccountChange",
+            "severity": "info",
+            "title": "Bank account history unavailable",
+            "detail": "Bank account history unavailable — no prior bank account on file for this vendor."
+          },
+          {
+            "key": "liquidityBelowReserve",
+            "severity": "critical",
+            "title": "Liquidity pressure",
+            "detail": "Payment would reduce available cash to ₹11,57,500, below the configured reserve of ₹50,00,000."
+          }
+        ],
+        "evidence": {
+          "liquidity": {
+            "currentCash": 1200000,
+            "invoiceAmount": 42500,
+            "cashAfterPayment": 1157500,
+            "minReserve": 5000000,
+            "status": "below_reserve"
+          }
+        },
+        "liquidity": {
+          "currentCash": 1200000,
+          "invoiceAmount": 42500,
+          "cashAfterPayment": 1157500,
+          "minReserve": 5000000,
+          "status": "below_reserve"
+        },
+        "explanation": {
+          "whyThisDecision": "FinSentry recommends HOLD because the invoice has 1 significant risk signal: liquidity pressure. Vendor/transaction history is limited for some checks, so missing history is not treated as evidence of fraud.",
+          "businessImpact": "Payment would reduce available cash to ₹11,57,500, below the configured operating reserve of ₹50,00,000, which may create short-term liquidity pressure.",
+          "source": "deterministic"
+        }
+      }
+    },
+    {
+      "id": "INV-e888a6a2",
+      "displayNumber": "INV-2026-099",
+      "vendorName": "Microsoft",
+      "invoiceNumber": "INV-2026-099",
+      "amount": 5000000,
+      "poNumber": "PO-2026-87",
+      "poAmount": 5000,
+      "invoiceDate": "2026-09-16",
+      "bankAccountNumber": "12345678976",
+      "status": "HOLD",
+      "createdAt": "2026-09-13T13:30:46.241Z",
+      "analysis": {
+        "analyzedAt": "2026-09-13T13:30:46.239Z",
+        "riskScore": 14,
+        "riskLevel": "LOW",
+        "recommendation": "HOLD",
+        "findings": [
+          {
+            "key": "amountAnomaly",
+            "severity": "info",
+            "title": "Vendor amount history unavailable",
+            "detail": "Vendor amount history unavailable — insufficient historical data."
+          },
+          {
+            "key": "poMismatch",
+            "severity": "info",
+            "title": "PO comparison unavailable",
+            "detail": "PO comparison unavailable — no stored purchase order amount to compare against."
+          },
+          {
+            "key": "duplicate",
+            "severity": "ok",
+            "title": "No duplicate invoice found",
+            "detail": "No matching invoice number, vendor, amount and date combination was found in stored invoices."
+          },
+          {
+            "key": "vendorBehaviorAnomaly",
+            "severity": "info",
+            "title": "Vendor history unavailable",
+            "detail": "Vendor history unavailable — insufficient historical data."
+          },
+          {
+            "key": "bankAccountChange",
+            "severity": "info",
+            "title": "Bank account history unavailable",
+            "detail": "Bank account history unavailable — no prior bank account on file for this vendor."
+          },
+          {
+            "key": "liquidityBelowReserve",
+            "severity": "critical",
+            "title": "Liquidity pressure",
+            "detail": "Payment would reduce available cash to ₹-38,00,000, below the configured reserve of ₹50,00,000."
+          }
+        ],
+        "evidence": {
+          "liquidity": {
+            "currentCash": 1200000,
+            "invoiceAmount": 5000000,
+            "cashAfterPayment": -3800000,
+            "minReserve": 5000000,
+            "status": "below_reserve"
+          }
+        },
+        "liquidity": {
+          "currentCash": 1200000,
+          "invoiceAmount": 5000000,
+          "cashAfterPayment": -3800000,
+          "minReserve": 5000000,
+          "status": "below_reserve"
+        },
+        "explanation": {
+          "whyThisDecision": "FinSentry recommends HOLD because the invoice has 1 significant risk signal: liquidity pressure. Vendor/transaction history is limited for some checks, so missing history is not treated as evidence of fraud.",
+          "businessImpact": "Payment would reduce available cash to ₹-38,00,000, below the configured operating reserve of ₹50,00,000, which may create short-term liquidity pressure.",
+          "source": "deterministic"
+        }
+      }
+    },
+    {
+      "id": "INV-d3a67fbd",
+      "displayNumber": "INV-2026-101",
+      "vendorName": "Microsoft",
+      "invoiceNumber": "INV-2026-101",
+      "amount": 5000000,
+      "poNumber": "PO-2026-87",
+      "poAmount": 50000,
+      "invoiceDate": "2026-09-16",
+      "bankAccountNumber": "48569716852",
+      "status": "ESCALATE",
+      "createdAt": "2026-09-13T13:31:48.688Z",
+      "analysis": {
+        "analyzedAt": "2026-09-13T13:31:48.687Z",
+        "riskScore": 60,
+        "riskLevel": "HIGH",
+        "recommendation": "ESCALATE",
+        "findings": [
+          {
+            "key": "amountAnomaly",
+            "severity": "info",
+            "title": "Vendor amount history unavailable",
+            "detail": "Vendor amount history unavailable — insufficient historical data."
+          },
+          {
+            "key": "poMismatch",
+            "severity": "warning",
+            "title": "PO mismatch",
+            "detail": "Invoice amount (₹50,00,000) differs from the recorded purchase order amount for PO-2026-87 (₹5,000)."
+          },
+          {
+            "key": "duplicate",
+            "severity": "warning",
+            "title": "Possible duplicate invoice",
+            "detail": "A previously stored invoice from the same vendor has the same amount and date (invoice INV-2026-099)."
+          },
+          {
+            "key": "vendorBehaviorAnomaly",
+            "severity": "ok",
+            "title": "No unusual vendor behavior detected",
+            "detail": "Based on 1 prior invoice(s) from this vendor, no unusual pattern was detected."
+          },
+          {
+            "key": "bankAccountChange",
+            "severity": "critical",
+            "title": "Bank account changed",
+            "detail": "Bank account differs from the vendor's previous record (was XXXX XXXX 8976, now XXXX XXXX 6852)."
+          },
+          {
+            "key": "liquidityBelowReserve",
+            "severity": "critical",
+            "title": "Liquidity pressure",
+            "detail": "Payment would reduce available cash to ₹-38,00,000, below the configured reserve of ₹50,00,000."
+          }
+        ],
+        "evidence": {
+          "poCheck": {
+            "poNumber": "PO-2026-87",
+            "poAmount": 5000,
+            "invoiceAmount": 5000000
+          },
+          "duplicateCheck": {
+            "matchedInvoiceNumber": "INV-2026-099",
+            "matchedVendor": "Microsoft",
+            "matchedAmount": 5000000,
+            "matchedDate": "2026-09-16"
+          },
+          "vendorBehavior": {
+            "priorInvoiceCount": 1,
+            "priorAmounts": [
+              5000000
+            ]
+          },
+          "bankAccount": {
+            "previousAccountMasked": "XXXX XXXX 8976",
+            "currentAccountMasked": "XXXX XXXX 6852"
+          },
+          "liquidity": {
+            "currentCash": 1200000,
+            "invoiceAmount": 5000000,
+            "cashAfterPayment": -3800000,
+            "minReserve": 5000000,
+            "status": "below_reserve"
+          }
+        },
+        "liquidity": {
+          "currentCash": 1200000,
+          "invoiceAmount": 5000000,
+          "cashAfterPayment": -3800000,
+          "minReserve": 5000000,
+          "status": "below_reserve"
+        },
+        "explanation": {
+          "whyThisDecision": "FinSentry recommends ESCALATE because the invoice has 4 significant risk signals: po mismatch, and possible duplicate invoice, and bank account changed, and liquidity pressure. Vendor/transaction history is limited for some checks, so missing history is not treated as evidence of fraud.",
+          "businessImpact": "Payment would reduce available cash to ₹-38,00,000, below the configured operating reserve of ₹50,00,000, which may create short-term liquidity pressure.",
+          "source": "deterministic"
+        }
+      }
+    }
+  ],
+  "approvalCases": [
+    {
+      "id": "CASE-72398eaa",
+      "invoiceId": "INV-d5e54e9d",
+      "invoiceNumber": "inv-0987",
+      "vendorName": "xyz",
+      "amount": 520441656,
+      "riskLevel": "LOW",
+      "recommendation": "HOLD",
+      "reason": "Liquidity pressure",
+      "status": "HOLD",
+      "createdAt": "2026-09-13T13:14:07.860Z",
+      "history": [
+        {
+          "status": "HOLD",
+          "at": "2026-09-13T13:14:07.860Z",
+          "note": "Case created from invoice analysis."
+        },
+        {
+          "status": "HOLD",
+          "at": "2026-09-13T13:14:10.828Z",
+          "note": ""
+        },
+        {
+          "status": "HOLD",
+          "at": "2026-09-13T13:14:13.074Z",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "CASE-69066b82",
+      "invoiceId": "INV-86b2a953",
+      "invoiceNumber": "DEMO-1789305266246",
+      "vendorName": "Bluepeak Office Supplies",
+      "amount": 42500,
+      "riskLevel": "LOW",
+      "recommendation": "HOLD",
+      "reason": "Liquidity pressure",
+      "status": "ESCALATE",
+      "createdAt": "2026-09-13T13:14:28.642Z",
+      "history": [
+        {
+          "status": "HOLD",
+          "at": "2026-09-13T13:14:28.642Z",
+          "note": "Case created from invoice analysis."
+        },
+        {
+          "status": "ESCALATE",
+          "at": "2026-09-13T13:14:31.084Z",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "id": "CASE-9e82c576",
+      "invoiceId": "INV-e888a6a2",
+      "invoiceNumber": "INV-2026-099",
+      "vendorName": "Microsoft",
+      "amount": 5000000,
+      "riskLevel": "LOW",
+      "recommendation": "HOLD",
+      "reason": "Liquidity pressure",
+      "status": "HOLD",
+      "createdAt": "2026-09-13T13:30:46.244Z",
+      "history": [
+        {
+          "status": "HOLD",
+          "at": "2026-09-13T13:30:46.245Z",
+          "note": "Case created from invoice analysis."
+        }
+      ]
+    },
+    {
+      "id": "CASE-5ed208f4",
+      "invoiceId": "INV-d3a67fbd",
+      "invoiceNumber": "INV-2026-101",
+      "vendorName": "Microsoft",
+      "amount": 5000000,
+      "riskLevel": "HIGH",
+      "recommendation": "ESCALATE",
+      "reason": "PO mismatch, Possible duplicate invoice, Bank account changed, Liquidity pressure",
+      "status": "ESCALATE",
+      "createdAt": "2026-09-13T13:31:48.692Z",
+      "history": [
+        {
+          "status": "ESCALATE",
+          "at": "2026-09-13T13:31:48.692Z",
+          "note": "Case created from invoice analysis."
+        }
+      ]
+    }
+  ],
+  "nextInvoiceSeq": 1,
+  "nextCaseSeq": 1
+}

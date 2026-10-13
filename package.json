@@ -1,0 +1,13 @@
+{
+  "name": "finsentry-ai",
+  "version": "1.0.0",
+  "description": "FinSentry AI - Explainable invoice risk decision-support tool",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

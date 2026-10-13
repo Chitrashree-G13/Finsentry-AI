@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FinSentry AI — Invoice Risk Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">FS</div>
+        <div class="brand-text">
+          <div class="brand-name">FinSentry</div>
+          <div class="brand-sub">Invoice Risk Intelligence</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#/dashboard" data-route="dashboard" class="nav-link">Dashboard</a>
+        <a href="#/add-invoice" data-route="add-invoice" class="nav-link">+ Add New Invoice</a>
+        <a href="#/cases" data-route="cases" class="nav-link">Approval Cases</a>
+        <a href="#/settings" data-route="settings" class="nav-link">Financial Settings</a>
+      </nav>
+      <div class="sidebar-foot">
+        <div id="aiStatusPill" class="ai-pill ai-pill--off">AI reasoning: off</div>
+        <p class="sidebar-note">Decision-support only. FinSentry does not guarantee fraud detection and does not replace finance approvers.</p>
+      </div>
+    </aside>
+
+    <main class="content" id="app">
+      <!-- views render here -->
+    </main>
+  </div>
+
+  <div id="toastHost" class="toast-host"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
